@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projeto</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Roboto&display=swap"
+      rel="stylesheet"
+    />
+    <link href="./styles/reset.css" rel="stylesheet" />
+    <link href="./styles/main.css" rel="stylesheet" />
+    <link href="./styles/form.css" rel="stylesheet" />
+    <link href="./styles/botao.css" rel="stylesheet" />
+    <link href="./styles/tipografia.css" rel="stylesheet" />
+    <link href="./styles/editor.css" rel="stylesheet" />
+    <script
+      src="https://kit.fontawesome.com/c29f56a3d3.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <header class="cabecalho">
+      <h1>
+        <img class="cabecalho__logo" src="./assets/logo.svg" />
+      </h1>
+
+      <input
+        id="busca"
+        class="cabecalho__barraDePesquisa form__input-text"
+        placeholder="Busque por algo"
+        type="text"
+      />
+
+      <div class="cabecalho__botoes">
+        <button class="cabecalho__botaoDePesquisa botao__icon">
+          <i class="fas fa-search"></i>
+        </button>
+        <button class="cabecalho__botaoDeMenu botao__icon">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+
+      <div class="cabecalho__usuario botao__usuario">
+        <img src="./assets/harry.jpg" class="botao__usuario__avatar" />
+        <span class="botao__usuario__nome">Harry</span>
+      </div>
+    </header>
+
+    <div class="conteudo">
+      <nav class="menu-desktop">
+        <h2 class="sidebar-title">Menu</h2>
+        <ul>
+          <li class="botao__item">
+            <button class="botao__item__icone">
+              <i class="fas fa-code"></i></button
+            >Editor de código
+          </li>
+          <li class="botao__item">
+            <button class="botao__item__icone">
+              <i class="fas fa-users"></i></button
+            >Comunidade
+          </li>
+        </ul>
+      </nav>
+
+      <div class="principal">
+        <div class="editor">
+          <div class="editor__terminal">
+            <div class="editor__terminal__circulos">
+              <span class="circulo vermelho"></span>
+              <span class="circulo amarelo"></span>
+              <span class="circulo verde"></span>
+            </div>
+            <textarea class="editor__terminal__input" spellcheck="false">
+  const pluckDeep = key => obj => key.split('.').reduce((accum, key) => accum[key], obj)
+  
+  const compose = (...fns) => res => fns.reduce((accum, next) => next(accum), res)
+            
+  const unfold = (f, seed) => {
+    const go = (f, seed, acc) => {
+      const res = f(seed)
+      return res ? go(f, res[1], acc.concat([res[0]])) : acc
+    }
+    return go(f, seed, [])
+  }</textarea
+            >
+          </div>
+        </div>
+        <button class="botao__outlined">Visualizar com highlight</button>
+      </div>
+
+      <div class="menuLateral">
+        <h2 class="sidebar-title">Seu projeto</h2>
+        <div class="menuLateral__projeto">
+          <input
+            id="nome"
+            class="form__input-text"
+            type="text"
+            placeholder="Nome do seu projeto"
+          />
+          <textarea
+            class="form__input-textarea"
+            id="descricao"
+            placeholder="Descrição do seu projeto"
+          ></textarea>
+        </div>
+
+        <h2 class="sidebar-title">Personalização</h2>
+        <div class="menuLateral__personalizacao">
+          <select class="form__input-select" name="linguagem">
+            <option class="form__input-select__option" value="javascript">
+              JavaScript
+            </option>
+            <option class="form__input-select__option" value="html">
+              HTML
+            </option>
+            <option class="form__input-select__option" value="css">CSS</option>
+          </select>
+          <input class="form__input-color" value="#6BD1FF" type="color" />
+        </div>
+        <button class="botao__filled">Salvar projeto</button>
+      </div>
+    </div>
+  </body>
+</html>
